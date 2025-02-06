@@ -10,7 +10,7 @@
                     "type": "Value",
                     "id": "65b4d7e8-5735-406a-8151-32cb4762eacc",
                     "expectedControlType": "Dpad",
-                    "processors": "",
+                    "processors": "NormalizeVector2",
                     "interactions": "",
                     "initialStateCheck": true
                 }
