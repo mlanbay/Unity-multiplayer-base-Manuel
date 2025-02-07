@@ -1,26 +1,32 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using Unity.Netcode;
+using ED.SC;
 
-public class AvatarController : MonoBehaviour
+public class AvatarController : NetworkBehaviour
 {
-    [SerializeField] private float speed = 3.0f;
-    private SpriteRenderer spriteRenderer;
+    [SerializeField] private float speed = 5.0f;
     private Vector2 inputVector;
-    private Rigidbody2D rigidbody2D;
     
     private bool keydown;
     
     // crea un avatar (Cliente) y le asigna un color distinto
     void Start()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();    
+
     }
 
-    // controla la posicion de los clientes
+    // controla la posicion de todos los clientes
     void Update()
     {
-        Move();
+
+        if (IsOwner)
+        {
+            Move();
+        }
+
+        
     }
     
     
@@ -43,7 +49,7 @@ public class AvatarController : MonoBehaviour
     {
         if (keydown)
         {
-            rigidbody2D.linearVelocity = inputVector * (speed * Time.deltaTime);
+            transform.Translate(inputVector*speed*Time.deltaTime);
         }
     }
 }
