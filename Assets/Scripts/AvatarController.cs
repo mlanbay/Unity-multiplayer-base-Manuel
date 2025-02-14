@@ -7,8 +7,8 @@ using ED.SC;
 public class AvatarController : NetworkBehaviour
 {
     [SerializeField] private float speed = 5.0f;
-    private Vector2 inputVector;
     
+    private Vector2 inputVector; 
     private bool keydown;
     
     // crea un avatar (Cliente) y le asigna un color distinto
